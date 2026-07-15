@@ -87,13 +87,13 @@
       </condition>
     </container>
 
-    <container n="analysis_parameters" pn="General parameters" icon="settings" help="General analysis settings" tree_state="open">
+    <container n="analysis_parameters" pn="General parameters" icon="settings" help="General analysis settings. For transient analyses, the default values satisfy time_steps x delta_time = end_time." tree_state="open">
       <value n="analysis_type" pn="Analysis type" v="Static" values="Static,Quasi-static,Dynamic" help="Select the analysis type. Use Quasi-static for incremental time or load stepping without inertial effects." update_proc="spdAux::RequestRefresh">
         <dependencies node="../value" actualize="1"/>
       </value>
-      <value n="time_steps" pn="Number of time steps" v="10" help="Total number of time steps. The default transient values intentionally satisfy time_steps x delta_time = end_time." state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
-      <value n="delta_time" pn="Delta time" v="0.1" unit_magnitude="T" units="s" help="Time increment. The default transient values intentionally satisfy time_steps x delta_time = end_time." state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
-      <value n="end_time" pn="End time" v="1.0" unit_magnitude="T" units="s" help="End time of the analysis. The default transient values intentionally satisfy time_steps x delta_time = end_time." state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
+      <value n="time_steps" pn="Number of time steps" v="10" help="Total number of time steps" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
+      <value n="delta_time" pn="Delta time" v="0.1" unit_magnitude="T" units="s" help="Time increment" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
+      <value n="end_time" pn="End time" v="1.0" unit_magnitude="T" units="s" help="End time of the analysis" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
       <value n="output_interval" pn="Output interval" v="1" help="Write results every N time steps" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
     </container>
   </container>

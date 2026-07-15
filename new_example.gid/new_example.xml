@@ -9,7 +9,7 @@
     <CustomLibAutomatic>1</CustomLibAutomatic>
     <CustomLibNativeGroups>1</CustomLibNativeGroups>
     <ImageFileBrowser>images/ImageFileBrowser.gif</ImageFileBrowser>
-    <ShortDescription>Structural 2D problemtype template</ShortDescription>
-    <Description>Use this template to create structural 2D problemtypes with supports, materials, loads, gravity, and time parameters.</Description>
+    <ShortDescription>Structural 2D problem type template</ShortDescription>
+    <Description>Use this template to create structural 2D problem types with supports, materials, loads, gravity, and time parameters.</Description>
   </Program>
 </Infoproblemtype>

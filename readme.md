@@ -1,4 +1,4 @@
-# GiD structural 2D problemtype template
+# GiD structural 2D problem type template
 This template provides a simple starting point for GiD structural 2D problemtypes.
 
 It already includes a basic data tree with:

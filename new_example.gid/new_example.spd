@@ -88,7 +88,7 @@
     </container>
 
     <container n="analysis_parameters" pn="General parameters" icon="settings" help="General analysis settings" tree_state="open">
-      <value n="analysis_type" pn="Analysis type" v="Static" values="Static,Quasi-static,Dynamic" help="Select the analysis type" update_proc="spdAux::RequestRefresh">
+      <value n="analysis_type" pn="Analysis type" v="Static" values="Static,Quasi-static,Dynamic" help="Select the analysis type. Use quasi-static for incremental time or load stepping without inertial effects." update_proc="spdAux::RequestRefresh">
         <dependencies node="../value" actualize="1"/>
       </value>
       <value n="time_steps" pn="Number of time steps" v="10" help="Total number of time steps" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>

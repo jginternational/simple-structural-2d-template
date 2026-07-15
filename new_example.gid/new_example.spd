@@ -15,9 +15,9 @@
       <dependencies node="//*[@unit_definition or @unit_mesh_definition='1']" att1='change_units_system' v1='{@v}'/> 
     </value>
     <container n="basic_units" pn="Basic units"  help="Basic units to be used in the analysis.">
-      <value n='units_length' pn='Length' unit_definition='L'/>
-      <value n='units_mass' pn='Mass' unit_definition='M'/>
-      <value n='units_time' pn='Time' unit_definition='T'/>
+      <value n="units_length" pn="Length" unit_definition="L"/>
+      <value n="units_mass" pn="Mass" unit_definition="M"/>
+      <value n="units_time" pn="Time" unit_definition="T"/>
     </container>
   </container>
 

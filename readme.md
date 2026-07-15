@@ -1,5 +1,5 @@
 # GiD structural 2D problem type template
-This template provides a simple starting point for GiD structural 2D problemtypes.
+This template provides a simple starting point for GiD structural 2D problem types.
 
 It already includes a basic data tree with:
 - Material properties
@@ -8,7 +8,7 @@ It already includes a basic data tree with:
 - Point and line loads
 - General analysis and time parameters
 
-Use it as a base for your own structural 2D teaching or prototype problemtypes.
+Use it as a base for your own structural 2D teaching or prototype problem types.
 
 Remember to:
 - Change the name: the name.gid must be the same as name.tcl, name.spd, name.win.bat, name.xml...

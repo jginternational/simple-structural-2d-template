@@ -17,7 +17,7 @@
     <container n="basic_units" pn="Basic units"  help="Basic units to be used in the analysis.">
       <value n='units_length' pn='Length' unit_definition="L"/>     
       <value n='units_mass' pn='Mass' unit_definition="M"/>
-      <value n='units_time' pn='Time' unit_definition="T"/>
+      <value n='units_time' pn='Time' unit_definition='T'/>
     </container>
   </container>
 
@@ -42,14 +42,14 @@
         <value n="fix_displacement_y" pn="Fix Y displacement" v="Yes" values="Yes,No" help="Enable or disable the Y displacement constraint"/>
         <value n="displacement_y" pn="Y displacement value" v="0.0" unit_magnitude="L" units="m" help="Prescribed Y displacement value"/>
         <value n="fix_rotation_z" pn="Fix Z rotation" v="Yes" values="Yes,No" help="Enable or disable the in-plane rotational constraint"/>
-        <value n="rotation_z" pn="Z rotation value" v="0.0" help="Prescribed in-plane rotation value"/>
+        <value n="rotation_z" pn="Z rotation value" v="0.0" unit_magnitude="1" units="rad" help="Prescribed in-plane rotation value"/>
         <group n="Fixed displacement Auto1" ov="point,line" tree_state="open">
           <value n="fix_displacement_x" pn="Fix X displacement" v="Yes" values="Yes,No" help="Enable or disable the X displacement constraint" state="normal"/>
           <value n="displacement_x" pn="X displacement value" v="0.0" unit_magnitude="L" units="m" help="Prescribed X displacement value" state="normal"/>
           <value n="fix_displacement_y" pn="Fix Y displacement" v="Yes" values="Yes,No" help="Enable or disable the Y displacement constraint" state="normal"/>
           <value n="displacement_y" pn="Y displacement value" v="0.0" unit_magnitude="L" units="m" help="Prescribed Y displacement value" state="normal"/>
           <value n="fix_rotation_z" pn="Fix Z rotation" v="Yes" values="Yes,No" help="Enable or disable the in-plane rotational constraint" state="normal"/>
-          <value n="rotation_z" pn="Z rotation value" v="0.0" help="Prescribed in-plane rotation value" state="normal"/>
+          <value n="rotation_z" pn="Z rotation value" v="0.0" unit_magnitude="1" units="rad" help="Prescribed in-plane rotation value" state="normal"/>
         </group>
       </condition>
     </container>

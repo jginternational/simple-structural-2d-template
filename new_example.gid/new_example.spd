@@ -69,11 +69,11 @@
       <condition n="point_load" pn="Point load" ov="point" ovm="node,element" icon="drag" help="Apply concentrated nodal loads" tree_state="close">
         <value n="force_x" pn="Force X" v="0.0" unit_magnitude="M*L/T^2" units="N" help="Point load component in X direction"/>
         <value n="force_y" pn="Force Y" v="0.0" unit_magnitude="M*L/T^2" units="N" help="Point load component in Y direction"/>
-        <value n="moment_z" pn="Moment Z" v="0.0" unit_magnitude="M*L^2/T^2" units="N*m" help="Point moment around the out-of-plane axis"/>
+        <value n="moment_z" pn="Moment Z" v="0.0" unit_magnitude="M*L^2/T^2" units="Nm" help="Point moment around the out-of-plane axis"/>
         <group n="Point load Auto1" ov="point" tree_state="open">
           <value n="force_x" pn="Force X" v="0.0" unit_magnitude="M*L/T^2" units="N" help="Point load component in X direction" state="normal"/>
           <value n="force_y" pn="Force Y" v="0.0" unit_magnitude="M*L/T^2" units="N" help="Point load component in Y direction" state="normal"/>
-          <value n="moment_z" pn="Moment Z" v="0.0" unit_magnitude="M*L^2/T^2" units="N*m" help="Point moment around the out-of-plane axis" state="normal"/>
+          <value n="moment_z" pn="Moment Z" v="0.0" unit_magnitude="M*L^2/T^2" units="Nm" help="Point moment around the out-of-plane axis" state="normal"/>
         </group>
       </condition>
 
@@ -88,11 +88,13 @@
     </container>
 
     <container n="analysis_parameters" pn="General parameters" icon="settings" help="General analysis settings" tree_state="open">
-      <value n="analysis_type" pn="Analysis type" v="Static" values="Static,Quasi-static,Dynamic" help="Select the analysis type"/>
-      <value n="time_steps" pn="Number of time steps" v="10" help="Total number of time steps"/>
-      <value n="delta_time" pn="Delta time" v="0.1" unit_magnitude="T" units="s" help="Time increment"/>
-      <value n="end_time" pn="End time" v="1.0" unit_magnitude="T" units="s" help="End time of the analysis"/>
-      <value n="output_interval" pn="Output interval" v="1" help="Write results every N time steps"/>
+      <value n="analysis_type" pn="Analysis type" v="Static" values="Static,Quasi-static,Dynamic" help="Select the analysis type" update_proc="spdAux::RequestRefresh">
+        <dependencies node="../value" actualize="1"/>
+      </value>
+      <value n="time_steps" pn="Number of time steps" v="10" help="Total number of time steps" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
+      <value n="delta_time" pn="Delta time" v="0.1" unit_magnitude="T" units="s" help="Time increment" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
+      <value n="end_time" pn="End time" v="1.0" unit_magnitude="T" units="s" help="End time of the analysis" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
+      <value n="output_interval" pn="Output interval" v="1" help="Write results every N time steps" state="[getStateFromXPathValue {string(../value[@n='analysis_type']/@v)} Quasi-static,Dynamic]"/>
     </container>
   </container>
 
@@ -113,7 +115,7 @@
       <unit_magnitude_user_sel n="M/(L*T^2)" values="Pa"/>
       <unit_magnitude_user_sel n="M*L/T^2" values="N"/>
       <unit_magnitude_user_sel n="M/T^2" values="N/m"/>
-      <unit_magnitude_user_sel n="M*L^2/T^2" values="N*m"/>
+      <unit_magnitude_user_sel n="M*L^2/T^2" values="Nm"/>
     </units>
   </global_preferences>
 

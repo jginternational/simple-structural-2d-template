@@ -2,14 +2,14 @@
 <!-- -*- coding: utf-8;-*- -->
 <Infoproblemtype version="1.0">
   <Program>
-    <Name>New example</Name>
+    <Name>Simple structural 2D</Name>
     <Version>0.1</Version>
     <ExecutableVersion></ExecutableVersion>
     <CheckMinimumGiDVersion>16.1.4d</CheckMinimumGiDVersion>
     <CustomLibAutomatic>1</CustomLibAutomatic>
     <CustomLibNativeGroups>1</CustomLibNativeGroups>
     <ImageFileBrowser>images/ImageFileBrowser.gif</ImageFileBrowser>
-    <ShortDescription>New problemtype template</ShortDescription>
-    <Description>Use this template to create your problemtype.</Description>
+    <ShortDescription>Structural 2D problemtype template</ShortDescription>
+    <Description>Use this template to create structural 2D problemtypes with supports, materials, loads, gravity, and time parameters.</Description>
   </Program>
 </Infoproblemtype>

@@ -16,8 +16,105 @@
     </value>
     <container n="basic_units" pn="Basic units"  help="Basic units to be used in the analysis.">
       <value n='units_length' pn='Length' unit_definition="L"/>     
-      <value n='units_mass' pn='Mass' unit_definition="M"/>          
+      <value n='units_mass' pn='Mass' unit_definition="M"/>
+      <value n='units_time' pn='Time' unit_definition="T"/>
     </container>
   </container>
+
+  <container n="simple_structural_2d" pn="Simple Structural 2D" tree_state="open">
+    <condition n="material" pn="Material" ov="surface" ovm="node,element" icon="select" help="Assign structural material properties to the 2D domain" tree_state="close">
+      <value n="young_modulus" pn="Young modulus" v="210000000000" unit_magnitude="M/(L*T^2)" units="Pa" help="Elastic modulus of the material"/>
+      <value n="poisson_ratio" pn="Poisson ratio" v="0.30" help="Poisson ratio of the material"/>
+      <value n="density" pn="Density" v="7850" unit_magnitude="M/L^3" units="kg/m^3" help="Mass density of the material"/>
+      <value n="thickness" pn="Thickness" v="0.10" unit_magnitude="L" units="m" help="Thickness of the 2D structural domain"/>
+      <group n="Material Auto1" ov="surface" tree_state="open">
+        <value n="young_modulus" pn="Young modulus" v="210000000000" unit_magnitude="M/(L*T^2)" units="Pa" help="Elastic modulus of the material" state="normal"/>
+        <value n="poisson_ratio" pn="Poisson ratio" v="0.30" help="Poisson ratio of the material" state="normal"/>
+        <value n="density" pn="Density" v="7850" unit_magnitude="M/L^3" units="kg/m^3" help="Mass density of the material" state="normal"/>
+        <value n="thickness" pn="Thickness" v="0.10" unit_magnitude="L" units="m" help="Thickness of the 2D structural domain" state="normal"/>
+      </group>
+    </condition>
+
+    <container n="boundary_conditions" pn="Boundary conditions" help="Support conditions for the structural model" tree_state="open">
+      <condition n="fixed_displacement" pn="Fixed displacements and rotation" ov="point,line" ovm="node,element" icon="select" help="Fix displacements and in-plane rotation" tree_state="close">
+        <value n="fix_displacement_x" pn="Fix X displacement" v="Yes" values="Yes,No" help="Enable or disable the X displacement constraint"/>
+        <value n="displacement_x" pn="X displacement value" v="0.0" unit_magnitude="L" units="m" help="Prescribed X displacement value"/>
+        <value n="fix_displacement_y" pn="Fix Y displacement" v="Yes" values="Yes,No" help="Enable or disable the Y displacement constraint"/>
+        <value n="displacement_y" pn="Y displacement value" v="0.0" unit_magnitude="L" units="m" help="Prescribed Y displacement value"/>
+        <value n="fix_rotation_z" pn="Fix Z rotation" v="Yes" values="Yes,No" help="Enable or disable the in-plane rotational constraint"/>
+        <value n="rotation_z" pn="Z rotation value" v="0.0" help="Prescribed in-plane rotation value"/>
+        <group n="Fixed displacement Auto1" ov="point,line" tree_state="open">
+          <value n="fix_displacement_x" pn="Fix X displacement" v="Yes" values="Yes,No" help="Enable or disable the X displacement constraint" state="normal"/>
+          <value n="displacement_x" pn="X displacement value" v="0.0" unit_magnitude="L" units="m" help="Prescribed X displacement value" state="normal"/>
+          <value n="fix_displacement_y" pn="Fix Y displacement" v="Yes" values="Yes,No" help="Enable or disable the Y displacement constraint" state="normal"/>
+          <value n="displacement_y" pn="Y displacement value" v="0.0" unit_magnitude="L" units="m" help="Prescribed Y displacement value" state="normal"/>
+          <value n="fix_rotation_z" pn="Fix Z rotation" v="Yes" values="Yes,No" help="Enable or disable the in-plane rotational constraint" state="normal"/>
+          <value n="rotation_z" pn="Z rotation value" v="0.0" help="Prescribed in-plane rotation value" state="normal"/>
+        </group>
+      </condition>
+    </container>
+
+    <container n="loads" pn="Loads" help="Loads to be used in the structural analysis" tree_state="open">
+      <condition n="gravity" pn="Gravity" ov="surface" ovm="node,element" icon="drag" help="Apply gravity to the structural domain" tree_state="close">
+        <value n="activate" pn="Apply gravity" v="Yes" values="Yes,No" help="Enable or disable gravity"/>
+        <value n="gravity_x" pn="Gravity X" v="0.0" unit_magnitude="L/T^2" units="m/s^2" help="Gravity acceleration in X direction"/>
+        <value n="gravity_y" pn="Gravity Y" v="-9.81" unit_magnitude="L/T^2" units="m/s^2" help="Gravity acceleration in Y direction"/>
+        <group n="Gravity Auto1" ov="surface" tree_state="open">
+          <value n="activate" pn="Apply gravity" v="Yes" values="Yes,No" help="Enable or disable gravity" state="normal"/>
+          <value n="gravity_x" pn="Gravity X" v="0.0" unit_magnitude="L/T^2" units="m/s^2" help="Gravity acceleration in X direction" state="normal"/>
+          <value n="gravity_y" pn="Gravity Y" v="-9.81" unit_magnitude="L/T^2" units="m/s^2" help="Gravity acceleration in Y direction" state="normal"/>
+        </group>
+      </condition>
+
+      <condition n="point_load" pn="Point load" ov="point" ovm="node,element" icon="drag" help="Apply concentrated nodal loads" tree_state="close">
+        <value n="force_x" pn="Force X" v="0.0" unit_magnitude="M*L/T^2" units="N" help="Point load component in X direction"/>
+        <value n="force_y" pn="Force Y" v="0.0" unit_magnitude="M*L/T^2" units="N" help="Point load component in Y direction"/>
+        <value n="moment_z" pn="Moment Z" v="0.0" unit_magnitude="M*L^2/T^2" units="N*m" help="Point moment around the out-of-plane axis"/>
+        <group n="Point load Auto1" ov="point" tree_state="open">
+          <value n="force_x" pn="Force X" v="0.0" unit_magnitude="M*L/T^2" units="N" help="Point load component in X direction" state="normal"/>
+          <value n="force_y" pn="Force Y" v="0.0" unit_magnitude="M*L/T^2" units="N" help="Point load component in Y direction" state="normal"/>
+          <value n="moment_z" pn="Moment Z" v="0.0" unit_magnitude="M*L^2/T^2" units="N*m" help="Point moment around the out-of-plane axis" state="normal"/>
+        </group>
+      </condition>
+
+      <condition n="line_load" pn="Line load" ov="line" ovm="node,element" icon="drag" help="Apply distributed loads on structural boundaries" tree_state="close">
+        <value n="load_x" pn="Load X" v="0.0" unit_magnitude="M/T^2" units="N/m" help="Distributed load component in X direction"/>
+        <value n="load_y" pn="Load Y" v="0.0" unit_magnitude="M/T^2" units="N/m" help="Distributed load component in Y direction"/>
+        <group n="Line load Auto1" ov="line" tree_state="open">
+          <value n="load_x" pn="Load X" v="0.0" unit_magnitude="M/T^2" units="N/m" help="Distributed load component in X direction" state="normal"/>
+          <value n="load_y" pn="Load Y" v="0.0" unit_magnitude="M/T^2" units="N/m" help="Distributed load component in Y direction" state="normal"/>
+        </group>
+      </condition>
+    </container>
+
+    <container n="analysis_parameters" pn="General parameters" icon="settings" help="General analysis settings" tree_state="open">
+      <value n="analysis_type" pn="Analysis type" v="Static" values="Static,Quasi-static,Dynamic" help="Select the analysis type"/>
+      <value n="time_steps" pn="Number of time steps" v="10" help="Total number of time steps"/>
+      <value n="delta_time" pn="Delta time" v="0.1" unit_magnitude="T" units="s" help="Time increment"/>
+      <value n="end_time" pn="End time" v="1.0" unit_magnitude="T" units="s" help="End time of the analysis"/>
+      <value n="output_interval" pn="Output interval" v="1" help="Write results every N time steps"/>
+    </container>
+  </container>
+
+  <groups>
+    <group n="Material Auto1" onoff="1" color="magenta" type=""/>
+    <group n="Fixed displacement Auto1" onoff="1" color="green" type=""/>
+    <group n="Gravity Auto1" onoff="1" color="yellow" type=""/>
+    <group n="Point load Auto1" onoff="1" color="pink" type=""/>
+    <group n="Line load Auto1" onoff="1" color="orange" type=""/>
+  </groups>
+
+  <global_preferences>
+    <units>
+      <unit_magnitude_user_sel n="T" values="s"/>
+      <unit_magnitude_user_sel n="L" values="m"/>
+      <unit_magnitude_user_sel n="L/T^2" values="m/s^2"/>
+      <unit_magnitude_user_sel n="M/L^3" values="kg/m^3"/>
+      <unit_magnitude_user_sel n="M/(L*T^2)" values="Pa"/>
+      <unit_magnitude_user_sel n="M*L/T^2" values="N"/>
+      <unit_magnitude_user_sel n="M/T^2" values="N/m"/>
+      <unit_magnitude_user_sel n="M*L^2/T^2" values="N*m"/>
+    </units>
+  </global_preferences>
 
 </data>
